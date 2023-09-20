@@ -69,6 +69,9 @@ ul {
 }
 
 .product-list li {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -103,4 +106,39 @@ ul {
 .favorites-page h2 {
   font-size: 24px;
   margin-bottom: 20px;
+}
+
+/** Media query for screens smaller than 768px (e.g., smartphones) */
+
+@media (max-width: 768px) {
+  /* Adjust header styles for smaller screens */
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .category-buttons {
+    margin-bottom: 10px;
+  }
+
+  /* Adjust category list styles for smaller screens */
+  .category-list ul {
+    flex-direction: column;
+  }
+
+  .category-list li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  /* Adjust product list styles for smaller screens */
+  .product-list ul {
+    flex-direction: column;
+  }
+
+  .product-list li {
+    width: 90%;
+    margin: 0;
+    padding: 10px;
+  }
 }
