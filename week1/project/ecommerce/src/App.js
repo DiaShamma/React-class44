@@ -1,52 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
-import React, { useState, useEffect } from 'react';
-import CategoryList from './components/CategoryList';
-import ProductList from './components/ProductList';
-
+import React, { useState } from 'react';
+import ProductList from './components/ProductList.js';
+import Header from './components/Header';
+import FavoritesPage from './components/FavoritesPage';
+import categories from './fake-data/all-categories'; // Import local categories data
+import products from './fake-data/all-products'; // Correct import path
 
 function App() {
-  // Define state variables and their initial values
-  const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('');
-
-  // Use relative paths to access the JSON files from your App.js file
-  // Assuming the JSON files are located in the src/fake-data directory
-  const productsDataPath = './fake-data/all-products.js';
-  const categoriesDataPath = './fake-data/all-categories.js';
-
-  // Use these paths when fetching data
-  useEffect(() => {
-    // Fetch products data
-    fetch(productsDataPath)
-      .then((response) => response.json())
-      .then((data) => {
-        setProducts(data);
-      })
-      .catch((error) => {
-        console.error('Error fetching products:', error);
-      });
-
-    // Fetch categories data
-    fetch(categoriesDataPath)
-      .then((response) => response.json())
-      .then((data) => {
-        setCategories(data);
-      })
-      .catch((error) => {
-        console.error('Error fetching categories:', error);
-      });
-  }, []);
-
-  // Rest of your component code
-  // ...
+  const [allCategories] = useState(categories);
+  // Initialize selectedCategory with the first category from your categories array
+  const [selectedCategory, setSelectedCategory] = useState(allCategories[0]);
+  const [showFavorites, setShowFavorites] = useState(false);
 
   return (
     <div className="App">
-      <img src={logo} className="App-logo" alt="logo" /> {/* Use the logo here */}
-      <CategoryList categories={categories} setSelectedCategory={setSelectedCategory} selectedCategory={selectedCategory} />
-      <ProductList products={products} selectedCategory={selectedCategory} />
+      <Header
+        categories={allCategories}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+        showFavorites={showFavorites}
+        setShowFavorites={setShowFavorites}
+      />
+      <main className="App-main">
+        {showFavorites ? (
+          <FavoritesPage products={products} />
+        ) : (
+          <ProductList products={products} selectedCategory={selectedCategory} />
+        )}
+      </main>
+      <footer></footer>
     </div>
   );
 }

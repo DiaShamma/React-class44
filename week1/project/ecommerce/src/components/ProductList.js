@@ -1,16 +1,21 @@
 import React from 'react';
 
 function ProductList({ products, selectedCategory }) {
-  const filteredProducts = selectedCategory
-    ? products.filter((product) => product.category === selectedCategory)
-    : products;
+
+
+  // Filter products based on the selected category
+  const filteredProducts = products.filter((product) =>
+    selectedCategory === null || selectedCategory.includes(product.category));
+
+  console.log('filteredProducts:', filteredProducts)// Debugging: Log the filtered products
 
   return (
     <div className="product-list">
       <ul>
-        {filteredProducts.map((product, index) => (
-          <li key={index}>
-            <h3>{product.name}</h3>
+        {filteredProducts.map((product) => (
+          <li key={product.id}>
+            <h3>{product.title}</h3>
+            <img src={product.image} alt={product.title} />
             <p>{product.description}</p>
             <p>Price: {product.price}</p>
           </li>

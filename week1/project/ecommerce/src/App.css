@@ -1,55 +1,106 @@
-/* .App {
-  text-align: center;
+/* App.css */
+
+/* Reset some default styles */
+body,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Style the entire app container */
+.App {
+  font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+  padding: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Style the header */
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.category-buttons button,
+.navigation-buttons button {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 16px;
 }
- */
 
-/* App.css */
-.category-list li.active {
+.category-buttons button.active,
+.navigation-buttons button.active {
   font-weight: bold;
+  text-decoration: underline;
 }
 
-@media (max-width: 768px) {
-  /* Styles for screens with a maximum width of 768px */
-  .category-list {
-    /* Adjust category list styles for smaller screens */
-  }
+/* Style the category list */
+.category-list ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-  .product-list {
-    /* Adjust product list styles for smaller screens */
-  }
+.category-list li {
+  margin-right: 20px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Style the product list */
+.product-list ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.product-list li {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px;
+  width: 300px;
+  text-align: left;
+}
+
+.product-list h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.product-list img {
+  max-width: 100%;
+  height: auto;
+  margin: 10px 0;
+}
+
+.product-list p {
+  font-size: 14px;
+}
+
+/* Style the favorites page */
+.favorites-page {
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.favorites-page h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
 }
