@@ -1,0 +1,40 @@
+/* PersonGenerator.css */
+
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.person-details {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.person-details img {
+  max-width: 100%;
+  border-radius: 50%;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  button {
+    font-size: 16px;
+  }
+}
