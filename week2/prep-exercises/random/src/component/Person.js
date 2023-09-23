@@ -1,20 +1,25 @@
 // Person.js
 import React from 'react';
 
-function Person({ person }) {
+function Person({ personData }) {
+  if (!personData) {
+    return null;
+  }
+
+  const { first_name, last_name, email, picture } = personData;
+
   return (
-    <div>
-      {person && (
-        <ul>
-          <li>First Name: {person.name.first}</li>
-          <li>Last Name: {person.name.last}</li>
-          <li>Email: {person.email}</li>
-          <li>Phone: {person.phone}</li>
-          <li>Address: {`${person.location.city}, ${person.location.state}, ${person.location.postcode}, ${person.location.country}`}</li>
-        </ul>
-      )}
+    <div className="person-details">
+      <img src={picture} alt={`${first_name} ${last_name}`} />
+      <ul>
+        <li>First Name: {first_name}</li>
+        <li>Last Name: {last_name}</li>
+        <li>Email: {email}</li>
+      </ul>
     </div>
   );
 }
 
 export default Person;
+
+

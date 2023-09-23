@@ -2,6 +2,7 @@
 import React from 'react';
 import './App.css';
 import PersonController from './component/PersonController.js';
+
 function App() {
   return (
     <div className="App">
@@ -9,7 +10,7 @@ function App() {
         <h1>Random Person Generator</h1>
       </header>
       <main>
-        <PersonController /> {/* Render the PersonController component */}
+        <PersonController />
       </main>
     </div>
   );
