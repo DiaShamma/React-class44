@@ -1,3 +1,6 @@
+
+//ProductList.js
+
 import React from 'react';
 
 function ProductList({ products, selectedCategory }) {
@@ -7,7 +10,7 @@ function ProductList({ products, selectedCategory }) {
   const filteredProducts = products.filter((product) =>
     selectedCategory === null || selectedCategory.includes(product.category));
 
-  console.log('filteredProducts:', filteredProducts)// Debugging: Log the filtered products
+  // deleting "console.loge"
 
   return (
     <div className="product-list">
