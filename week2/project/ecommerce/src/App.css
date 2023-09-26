@@ -1,0 +1,162 @@
+/* App.css */
+
+/* Reset some default styles */
+body,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Style the entire app container */
+.App {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Style the header */
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.category-buttons button,
+.navigation-buttons button {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.category-buttons button.active,
+.navigation-buttons button.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Style the category list */
+.category-list ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-list li {
+  margin-right: 20px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Style the product list */
+.product-list ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.product-list li {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px;
+  width: 300px;
+  text-align: left;
+}
+
+.product-list h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.product-list img {
+  max-width: 100%;
+  height: auto;
+  margin: 10px 0;
+}
+
+.product-list p {
+  font-size: 14px;
+}
+
+/* Style the favorites page */
+.favorites-page {
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.favorites-page h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+}
+
+/** Media query for screens smaller than 768px (e.g., smartphones) */
+
+@media (max-width: 768px) {
+  /* Adjust header styles for smaller screens */
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .category-buttons {
+    margin-bottom: 10px;
+  }
+
+  /* Adjust category list styles for smaller screens */
+  .category-list ul {
+    flex-direction: column;
+  }
+
+  .category-list li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  /* Adjust product list styles for smaller screens */
+  .product-list ul {
+    flex-direction: column;
+  }
+
+  .product-list li {
+    width: 90%;
+    margin: 0;
+    padding: 10px;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
