@@ -25,7 +25,7 @@ function ProductList({ products, selectedCategory }) {
         ))}
       </ul>
     </div>
-  );
-}
+  )
+};
 
 export default ProductList;
