@@ -1,7 +1,8 @@
 // App.js
 import React from 'react';
 import useWindowSize from './components/useWindowSize';
-import Avatar from './components/Avtar';
+import Avatar from './components/Avatar';
+import Container from './components/Container';
 
 function App() {
   const { screenType } = useWindowSize();
@@ -27,11 +28,14 @@ function App() {
       avatarProps = { name: 'Unknown' };
   }
 
+
+
   return (
-    <div>
+    <Container>
       <Avatar {...avatarProps} />
-    </div>
+    </Container>
   );
 }
+
 
 export default App;
