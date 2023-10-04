@@ -1,15 +1,16 @@
-
-//ProductList.js
-
-import React, { useContext } from 'react';
-import FavoritesContext from '../Contexts/FavoritesContext'; // Adjust the path based on your folder structure
-
+import React, { useContext } from "react";
+import FavoritesContext from "../Contexts/FavoritesContext";
+import HeartSolid from "../assets/heart-solid.svg"; // Import SVGs
+import HeartRegular from "../assets/heart-regular.svg";
 function ProductList({ products, selectedCategory }) {
-  const { addFavorite, removeFavorite, isFavorite } = useContext(FavoritesContext);
+  // Removed `productId` since it wasn't used
+  const { addFavorite, removeFavorite, isFavorite } =
+    useContext(FavoritesContext);
 
   // Filter products based on the selected category
-  const filteredProducts = products.filter((product) =>
-    selectedCategory === null || selectedCategory.includes(product.category)
+  const filteredProducts = products.filter(
+    (product) =>
+      selectedCategory === null || selectedCategory.includes(product.category)
   );
 
   const toggleFavorite = (id) => {
@@ -29,15 +30,22 @@ function ProductList({ products, selectedCategory }) {
             <img src={product.image} alt={product.title} />
             <p>{product.description}</p>
             <p>Price: {product.price}</p>
-            {/* Toggle favorite status */}
-            <button onClick={() => toggleFavorite(product.id)}>
-              {isFavorite(product.id) ? "Remove from Favorites" : "Add to Favorites"}
+            {/* Toggle favorite status using SVGs */}
+            <button
+              className="favorite-btn"
+              onClick={() => toggleFavorite(product.id)}
+            >
+              {isFavorite(product.id) ? (
+                <img src={HeartSolid} alt="Remove from favorites" />
+              ) : (
+                <img src={HeartRegular} alt="Add to favorites" />
+              )}
             </button>
           </li>
         ))}
       </ul>
     </div>
   );
-};
+}
 
 export default ProductList;

@@ -1,9 +1,13 @@
-import React from 'react';
+//Header.js
 
-function Header({ categories, selectedCategory, setSelectedCategory, showFavorites, setShowFavorites }) {
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+// ... rest of the imports ...
+
+function Header({ categories, selectedCategory, setSelectedCategory }) {
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
-    setShowFavorites(false); // Switch back to products when a category is selected
   };
 
   return (
@@ -20,8 +24,8 @@ function Header({ categories, selectedCategory, setSelectedCategory, showFavorit
         ))}
       </div>
       <div className="navigation-buttons">
-        <button onClick={() => setShowFavorites(true)}>Favorites</button>
-        <button onClick={() => setShowFavorites(false)}>Products</button>
+        <Link to="/favorites">Favorites</Link>
+        <Link to="/">Products</Link>
       </div>
     </div>
   );
