@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import FavoritesContext from "../Contexts/FavoritesContext";
-import HeartSolid from "../assets/heart-solid.svg"; // Import SVGs
+import HeartSolid from "../assets/heart-solid.svg";
 import HeartRegular from "../assets/heart-regular.svg";
 function ProductList({ products, selectedCategory }) {
-  // Removed `productId` since it wasn't used
+ 
   const { addFavorite, removeFavorite, isFavorite } =
     useContext(FavoritesContext);
 
-  // Filter products based on the selected category
+ 
   const filteredProducts = selectedCategory ? products.filter(product => product.category === selectedCategory) : products;
 
 

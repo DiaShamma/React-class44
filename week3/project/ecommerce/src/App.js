@@ -20,12 +20,12 @@ function App() {
 
 
 
-  // Handling loading state
+
   if (categoriesLoading || productsLoading) {
     return <div className="loader">Loading...</div>;
   }
 
-  // Handling error state
+
   if (categoriesError || productsError) {
     return <div>Error: {categoriesError || productsError}</div>;
   }

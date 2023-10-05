@@ -1,0 +1,17 @@
+{
+  "files": {
+    "App.css": "/React-class44/week3/project/ecommerce/build/static/css/App.css",
+    "App.js": "/React-class44/week3/project/ecommerce/build/static/js/App.js",
+    "App.chunk.js": "/React-class44/week3/project/ecommerce/build/static/js/App.chunk.js",
+    "index.html": "/React-class44/week3/project/ecommerce/build/index.html",
+    "static/media/heart-regular.svg": "/React-class44/week3/project/ecommerce/build/static/media/heart-regular.f358882fac0d14d48e2823e07fe31016.svg",
+    "static/media/heart-solid.svg": "/React-class44/week3/project/ecommerce/build/static/media/heart-solid.70b72c45739e60e9fb16359db455a441.svg",
+    "App.css.map": "/React-class44/week3/project/ecommerce/build/static/css/App.css.map",
+    "App.js.map": "/React-class44/week3/project/ecommerce/build/static/js/App.js.map",
+    "App.chunk.js.map": "/React-class44/week3/project/ecommerce/build/static/js/App.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/App.css",
+    "static/js/App.js"
+  ]
+}
