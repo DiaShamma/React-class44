@@ -2,6 +2,7 @@ import { createContext } from 'react';
 import React, { useState } from 'react';
 
 
+
 const FavoritesContext = createContext({
   favorites: [],
   addFavorite: (id) => { },
