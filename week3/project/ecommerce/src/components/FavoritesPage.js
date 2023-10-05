@@ -4,17 +4,18 @@ import HeartSolid from "../assets/heart-solid.svg";
 import HeartRegular from "../assets/heart-regular.svg";
 
 function FavoritesPage() {
-  const { favorites } = useContext(FavoritesContext);
+  const { favorites, addFavorite, removeFavorite, isFavorite } = useContext(FavoritesContext);
   const [favoriteProducts, setFavoriteProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { addFavorite, removeFavorite, isFavorite } =
-    useContext(FavoritesContext);
 
   useEffect(() => {
     const fetchFavoriteProduct = async (id) => {
       try {
         const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
         const product = await response.json();
         return product;
       } catch (err) {
@@ -30,14 +31,8 @@ function FavoritesPage() {
       setLoading(false);
     };
 
-
-
     fetchFavorites();
   }, [favorites]);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
-
 
   const toggleFavorite = (id) => {
     if (isFavorite(id)) {
@@ -47,18 +42,21 @@ function FavoritesPage() {
     }
   };
 
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
   return (
     <div className="favorites-page">
       {favoriteProducts.length === 0 ? (
-        <p>You haven't chosen any favourites yet!</p>
+        <p>You haven't chosen any favorites yet!</p>
       ) : (
         <ul>
           {favoriteProducts.map(product => (
             <li key={product.id}>
               <img src={product.image} alt={product.title} />
-              <a href="{product.description}">{product.title}</a>
+              <a href={product.description}>{product.title}</a>
               <button
-                className="favorite-btnn"
+                className="favorite-btn"
                 onClick={() => toggleFavorite(product.id)}
               >
                 {isFavorite(product.id) ? (
@@ -74,8 +72,5 @@ function FavoritesPage() {
     </div>
   );
 }
-
-
-
 
 export default FavoritesPage;
