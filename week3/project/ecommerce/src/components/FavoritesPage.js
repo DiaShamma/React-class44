@@ -49,30 +49,28 @@ function FavoritesPage() {
 
   return (
     <div className="favorites-page">
-      <h2>Favorites</h2>
-      <ul>
-        {favoriteProducts.map(product => (
-          <li key={product.id}>
-
-            <img src={product.image} alt={product.title} />
-            <a href="{product.description}">{product.title}</a>
-            <button
-              className="favorite-btnn"
-              onClick={() => toggleFavorite(product.id)}
-            >
-              {isFavorite(product.id) ? (
-                <img src={HeartSolid} alt="Remove from favorites" />
-              ) : (
-                <img src={HeartRegular} alt="Add to favorites" />
-              )}
-            </button>
-
-
-
-          </li>
-
-        ))}
-      </ul>
+      {favoriteProducts.length === 0 ? (
+        <p>You haven't chosen any favourites yet!</p>
+      ) : (
+        <ul>
+          {favoriteProducts.map(product => (
+            <li key={product.id}>
+              <img src={product.image} alt={product.title} />
+              <a href="{product.description}">{product.title}</a>
+              <button
+                className="favorite-btnn"
+                onClick={() => toggleFavorite(product.id)}
+              >
+                {isFavorite(product.id) ? (
+                  <img src={HeartSolid} alt="Remove from favorites" />
+                ) : (
+                  <img src={HeartRegular} alt="Add to favorites" />
+                )}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

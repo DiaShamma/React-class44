@@ -8,10 +8,8 @@ function ProductList({ products, selectedCategory }) {
     useContext(FavoritesContext);
 
   // Filter products based on the selected category
-  const filteredProducts = products.filter(
-    (product) =>
-      selectedCategory === null || selectedCategory.includes(product.category)
-  );
+  const filteredProducts = selectedCategory ? products.filter(product => product.category === selectedCategory) : products;
+
 
   const toggleFavorite = (id) => {
     if (isFavorite(id)) {

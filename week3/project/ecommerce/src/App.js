@@ -6,6 +6,8 @@ import FavoritesPage from './components/FavoritesPage';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import useFetch from "./hooks/useFetch";
 
+
+
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
@@ -14,6 +16,9 @@ function App() {
 
   const { data: allCategories, isLoading: categoriesLoading, error: categoriesError } = useFetch(categoriesUrl);
   const { data: products, isLoading: productsLoading, error: productsError } = useFetch(productsUrl);
+
+
+
 
   // Handling loading state
   if (categoriesLoading || productsLoading) {
